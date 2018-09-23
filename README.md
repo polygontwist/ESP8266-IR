@@ -26,8 +26,9 @@ folgende Bibliothecken wurden verwendet:
 
 Bei upload auf den ESP muß der Flash-Button gedrück werden und dann Reset gedrückt werden - damit geht der ESP8266 in den Programiermodus.
 
-Nach dem Übertragen startet der ESP8266 neu und meldet sich im angegeben Netzwerk an. Mit der Seriellen Konsole kann der Bootvorgang beobachtet werden. Wenn alles klappt kann man updates per OTA einspielen.
+Nach dem Übertragen startet der ESP8266 neu und meldet sich im angegeben Netzwerk an. Mit der Seriellen Konsole kann der Bootvorgang beobachtet werden. Wenn alles klappt kann man updates später per OTA einspielen.
 
+Weiteres siehe bei Webview.
 
 ## Hardwaresetup
 * IR-Diode: ld 274-3
@@ -48,3 +49,5 @@ Verwendung auf eigene Gefahr!
 
 ## Webview
 <img src="https://github.com/polygontwist/ESP8266-IR/blob/master/fritzing/webview.png" width="248" alt="Webview">
+
+Dafür sind die Daten in "www-data" mit dem upload-Formular auf den ESP zu laden.
