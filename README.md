@@ -1,5 +1,5 @@
 # ESP8266-IR
-IR Signale empfangen und senden. Codes für Denon RC-1016 ermittelt.
+IR Signale empfangen und senden. Codes für Denon RC-1016 für DENON AVR-2106 ermittelt.
 
 
 ## Quellen
@@ -8,3 +8,7 @@ IR Signale empfangen und senden. Codes für Denon RC-1016 ermittelt.
 
 ## Plan
 <img src="https://github.com/polygontwist/ESP8266-IR/blob/master/fritzing/schaltung.png" width="386" alt="Schaltplan ESP8266 IR">
+
+## Funktionen
+* update per OTA
+
