@@ -14,6 +14,8 @@ folgende Bibliothecken wurden verwendet:
 * FS (SPIFFS)
 * https://github.com/markszabo/IRremoteESP8266
 
+* https://daniel-ziegler.com/arduino/esp/mikrocontroller/2017/07/28/arduino-universalfernbedienung/
+
 # Installation mit Arduino IDE 1.8.5
 * zuerst müssen die Zeilen #define WIFI_SSID und #define WIFI_PASSWORD aus kommentiert und befüllt werden
 * die Zeile #include "wifisetup.h" ist auszukommentieren (ich habe dort meine Wifi-Einstellungen abgelegt)
