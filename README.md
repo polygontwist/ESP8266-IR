@@ -26,9 +26,13 @@ Nach dem Übertragen startet der ESP8266 neu und meldet sich im angegeben Netzwe
 
 
 ## Hardwaresetup
-<img src="https://github.com/polygontwist/ESP8266-IR/blob/master/fritzing/schaltung.png" width="386" alt="Schaltplan ESP8266 IR">
+* IR-Diode: ld 274-3
+* Empfänger: TSOP31240
+
+<img src="https://github.com/polygontwist/ESP8266-IR/blob/master/fritzing/schaltung.png" width="365" alt="Schaltplan ESP8266 IR">
 
 Verwendung auf eigene Gefahr!
+
 
 ## Funktionen
 * Schalten per WLAN-Verbindung
