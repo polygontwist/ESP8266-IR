@@ -1,0 +1,119 @@
+Denon:
+0x0868:Serial.println("(>>|)");
+0x08e8:Serial.println("(play)");
+0x0968:Serial.println("(>>)");
+0x09e8:Serial.println("(stop)");
+0x0a34:Serial.println("(dvd/vdp)");
+0x0a68:Serial.println("(|<<)");
+0x0ae8:Serial.println("(||)");
+0x0b58:Serial.println("(<)");
+0x0b68:Serial.println("(<<)");
+0x11a4:Serial.println("(musik)");
+0x12a4:Serial.println("(cinema)");
+0x1814:Serial.println("(setup)");
+0x1854:Serial.println("(5ch stereo)");
+0x186C:Serial.println("(mode)");
+0x1894:Serial.println("(DOWN)");
+0x18cC:Serial.println("(memory)");
+0x1904:Serial.println("(sourround back)");
+0x196C:Serial.println("(tv vol -)");
+0x19aC:Serial.println("(cannel +)");
+0x19b4:Serial.println("(input mode)");
+0x19e4:Serial.println("(direct)");
+0x1a14:Serial.println("(surround parameter)");
+0x1a6C:Serial.println("(tv vol +)");
+0x1aaC:Serial.println("(cannel -)");
+0x1ab4:Serial.println("(input ext in)");
+0x1aCC:Serial.println("(shift)");
+0x1ae4:Serial.println("(sereo)");
+0x1b14:Serial.println("(UP)");
+0x1baC:Serial.println("(band)");
+0x1beC:Serial.println("(dimmer)");
+0x1bf8:Serial.println("(LEFT)");
+0x201C:Serial.println("(ENTER)");
+0x203C:Serial.println("(mute)");
+0x206C:Serial.println("(video select)");
+0x208C:Serial.println("(2)");
+0x209C:Serial.println("(standard)");
+0x20cc:Serial.println("(8)");
+0x20ec:Serial.println("(input analog)");
+0x212c:Serial.println("(9)");
+0x213c:Serial.println("(-)");
+0x215c:Serial.println("(test tone)");
+0x218c:Serial.println("(tv/vcr)");
+0x219c:Serial.println("(dsp simulation)");
+0x21cc:Serial.println("(7)");
+0x221c:Serial.println("(on/quelle)");
+0x223c:Serial.println("(+)");
+0x224C:Serial.println("(5)");
+0x228C:Serial.println("(3)");
+0x22cc:Serial.println("(6)");
+0x22dc:Serial.println("(speaker)");
+0x22ec:Serial.println("(RIGHT)");
+0x230C:Serial.println("(1)");
+0x231C:Serial.println("(4)");
+0x23eC:Serial.println("(on screen)");
+0xAF5E817:Serial.println("(TV)");
+0x26D9FF00:Serial.println("(VCR)");
+0xF3EAEB55:Serial.println("(DBS/Cable)");
+
+
+
+
+
+
+
+
+
+
+
+
+(1)
+Encoding  : DENON
+Code      : 230C (15 bits)
+Raw Timing[31]:
+   +   310, -   752,    +   282, -  1810,    +   258, -   776,    +   286, -   752, 
+   +   282, -   776,    +   280, -  1788,    +   286, -  1806,    +   262, -   772, 
+   +   286, -   752,    +   282, -   778,    +   280, -   752,    +   286, -  1790, 
+   +   278, -  1812,    +   286, -   752,    +   282, -   776,    +   258
+
+uint16_t rawData[31] = {310, 752,  282, 1810,  258, 776,  286, 752,  282, 776,  280, 1788,  286, 1806,  262, 772,  286, 752,  282, 778,  280, 752,  286, 1790,  278, 1812,  286, 752,  282, 776,  258};  // DENON 230C
+uint32_t address = 0x2;
+uint32_t command = 0xC3;
+uint64_t data = 0x230C;
+
+------------------------------------------------------------
+(2)
+Encoding  : DENON
+Code      : 208C (15 bits)
+Raw Timing[31]:
+   +   310, -   752,    +   282, -  1812,    +   256, -   776,    +   286, -   752, 
+   +   282, -   776,    +   282, -   752,    +   286, -   772,    +   262, -  1810, 
+   +   282, -   752,    +   286, -   772,    +   282, -   752,    +   286, -  1790, 
+   +   278, -  1812,    +   286, -   752,    +   282, -   776,    +   258
+
+uint16_t rawData[31] = {310, 752,  282, 1812,  256, 776,  286, 752,  282, 776,  282, 752,  286, 772,  262, 1810,  282, 752,  286, 772,  282, 752,  286, 1790,  278, 1812,  286, 752,  282, 776,  258};  // DENON 208C
+uint32_t address = 0x2;
+uint32_t command = 0xC4;
+uint64_t data = 0x208C;
+
+------------------------------------------------------------
+(3)
+Encoding  : DENON
+Code      : 228C (15 bits)
+Raw Timing[31]:
+   +   306, -   752,    +   286, -  1806,    +   262, -   772,    +   286, -   752, 
+   +   282, -   776,    +   286, -  1782,    +   286, -   776,    +   258, -  1810, 
+   +   286, -   748,    +   286, -   772,    +   286, -   748,    +   286, -  1790, 
+   +   282, -  1808,    +   286, -   752,    +   262, -   796,    +   258
+
+uint16_t rawData[31] = {306, 752,  286, 1806,  262, 772,  286, 752,  282, 776,  286, 1782,  286, 776,  258, 1810,  286, 748,  286, 772,  286, 748,  286, 1790,  282, 1808,  286, 752,  262, 796,  258};  // DENON 228C
+uint32_t address = 0x2;
+uint32_t command = 0xC5;
+uint64_t data = 0x228C;
+
+
+send data.json
+
+
+
