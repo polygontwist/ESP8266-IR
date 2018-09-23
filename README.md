@@ -3,6 +3,7 @@ IR Signale empfangen und senden.
 
 Ich habe die Codes vom Denon RC-1016 für DENON AVR-2106 ermittelt, siehe codes.txt.
 
+Das Grundsetup habe ich von https://github.com/polygontwist/ESP_sonoff_Schaltuhr abgeleitet (TA, Timersteuerung,...).
 
 # Quellen und Inspirationen
 folgende Bibliothecken wurden verwendet:
@@ -44,4 +45,5 @@ Verwendung auf eigene Gefahr!
 * update per OTA möglich (Arduino)
 * Oberfläche per Javascript und CSS gestaltbar
 
-
+## Webview
+<img src="https://github.com/polygontwist/ESP8266-IR/blob/master/fritzing/webview.png" width="248" alt="Webview">
