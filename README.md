@@ -1,9 +1,10 @@
 # ESP8266-IR
-IR Signale empfangen und senden. 
+IR Signale empfangen (Debug in Console) und senden. 
 
 Ich habe die Codes vom Denon RC-1016 für DENON AVR-2106 ermittelt, siehe codes.txt.
 
 Das Grundsetup habe ich von https://github.com/polygontwist/ESP_sonoff_Schaltuhr abgeleitet (TA, Timersteuerung,...).
+D.h. man kann hiermit Zeitgesteuert IR-Signale aussenden.
 
 # Quellen und Inspirationen
 folgende Bibliothecken wurden verwendet:
