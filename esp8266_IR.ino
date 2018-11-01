@@ -1,8 +1,9 @@
 /*
   115200 Baud
 
-  ESP8266, DOUT, 115200, 1M(64k SPIFFS), 80MHz
+  ESP8266, DOUT, 115200, 4M(2M SPIFFS), 80MHz
   
+   
 */
 
 
@@ -908,10 +909,11 @@ void handleAction() {//Rueckgabe JSON
       /action?dataio=LEDOFF   LED ausschalten
       /action?getpin=0        aktuellen Status von Pin IO0
   */
+  String val="";
   String message = "{\n";
   message += "\"Arguments\":[\n";
 
-  uint8_t AktionBefehl = 0;
+  uint32_t AktionBefehl = 0;
   uint8_t keyOK = 0;
   uint8_t aktionresult = 0;
 
@@ -923,12 +925,17 @@ void handleAction() {//Rueckgabe JSON
      // if (server.arg(i) == "ON")   AktionBefehl = 1;
       //if (server.arg(i) == "OFF")  AktionBefehl = 2;
       if (server.arg(i) == "LEDON")  AktionBefehl = 3;
+      else
       if (server.arg(i) == "LEDOFF")  AktionBefehl = 4;
-      
-      if (server.arg(i) == "sendCMD1")  AktionBefehl = 5;
+      else{
+        val=server.arg(i);
+        if (val.length() != 0) 
+              AktionBefehl = server.arg(i).toInt();
+      }
+      /*if (server.arg(i) == "sendCMD1")  AktionBefehl = 5;
       if (server.arg(i) == "sendCMD2")  AktionBefehl = 6;
       if (server.arg(i) == "sendCMD3")  AktionBefehl = 7;
-      if (server.arg(i) == "sendCMD4")  AktionBefehl = 8;
+      if (server.arg(i) == "sendCMD4")  AktionBefehl = 8;*/
       
     }
     
@@ -1061,7 +1068,7 @@ void handleNotFound() {
 }
 
 //----------------------IO-----------------------------
-uint8_t handleAktion(uint8_t befehl, uint8_t key) {
+uint8_t handleAktion(uint32_t befehl, uint8_t key) {
   uint8_t re = 0;
  /* Serial.print("handleAktion:");
   Serial.print(befehl);
@@ -1087,7 +1094,7 @@ uint8_t handleAktion(uint8_t befehl, uint8_t key) {
       re = 4;
     }
 
-    if (befehl > 4 && befehl< 9) {//send IR
+    if (befehl > 0x800) {//send IR
       IRsendbefehl(befehl);
       re = befehl;
     }
@@ -1104,15 +1111,20 @@ uint8_t handleAktion(uint8_t befehl, uint8_t key) {
 uint16_t butt_2[31] = {310, 752,  282, 1812,  256, 776,  286, 752,  282, 776,  282, 752,  286, 772,  262, 1810,  282, 752,  286, 772,  282, 752,  286, 1790,  278, 1812,  286, 752,  282, 776,  258};  // DENON 208C
 uint16_t butt_3[31] = {306, 752,  286, 1806,  262, 772,  286, 752,  282, 776,  286, 1782,  286, 776,  258, 1810,  286, 748,  286, 772,  286, 748,  286, 1790,  282, 1808,  286, 752,  262, 796,  258};  // DENON 228C
 */
-void IRsendbefehl(uint8_t id){
+void IRsendbefehl(uint32_t id){// >0x0800
    setLED(true);
    //irsend.sendPronto(samsungProntoCode, 72);//array, länge, opt: repeat
    //irsend.sendGC(Samsung_power_toggle, 71);//array, länge, opt: repeat
    //irsend.sendRaw(butt_3, 31);//
-   if(id==5)irsend.sendDenon(0x228C);//3
+/*   if(id==5)irsend.sendDenon(0x228C);//3
    if(id==6)irsend.sendDenon(0x22cc);//6
    if(id==7)irsend.sendDenon(0x203C);//mute
    //if(id==8)irsend.sendDenon(0x22cc);//6
+*/
+   irsend.sendDenon(id);
+
+
+   
    Serial.print("Befehl ");
    Serial.println(id);
    delay(20);

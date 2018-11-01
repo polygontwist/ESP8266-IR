@@ -2,11 +2,49 @@
 // dataio
 
 var befehllist=[
-	{b:'LEDON',n:"LED On"},
-	{b:'LEDOFF',n:"LED Off"},
-	{b:'sendCMD1',n:"send 3"},
-	{b:'sendCMD2',n:"send 6"},
-	{b:'sendCMD3',n:"send mute"}
+	{g:[
+		{b:'LEDON',n:"LED On"},{b:'LEDOFF',n:"LED Off"}
+		]		
+	}
+	,
+	
+	{g:[
+		{b:0x230C,n:"1"},
+		{b:0x208C,n:"2"},
+		{b:0x228C,n:"3<span>tuner</span>"},
+		]		
+	}
+	,
+	
+	{g:[
+		{b:0x231C,n:"4"},
+		{b:0x224C,n:"5"},
+		{b:0x22cc,n:"6<span>PC</span>"},
+		]		
+	}
+	,
+	
+	{g:[
+		{b:0x21cc,n:"7"},
+		{b:0x20cc,n:"8"},
+		{b:0x212c,n:"9"},
+		]		
+	}
+	,
+	
+	{g:[
+		{b:0x223c,n:"V+<span>0.5</span>"},
+		{b:0x213c,n:"V-<span>0.5</span>"},
+		{b:0x203C,n:"mute"}
+		]		
+	}
+	/*,
+	
+	
+	{b:0x228C,n:"send 3"},//b=data n=Label
+	{b:0x22cc,n:"send 6"},
+	{b:0x203C,n:"send mute"}
+	*/
 	];
 //{b:'ON',n:"On"},{b:'OFF',n:"Off"},
 
@@ -127,9 +165,7 @@ var setstat=function(data){
 				//if(data.Arguments[i].dataio==="ON")	{rel=true;setrel=true;}
 				//if(data.Arguments[i].dataio==="OFF")	{setrel=true;}
 				if(data.Arguments[i].dataio==="LEDON")	{led=true;setled=true;}
-				if(data.Arguments[i].dataio==="LEDOFF")	{setled=true;}
-				if(data.Arguments[i].dataio==="sendCMD1")	{}
-				if(data.Arguments[i].dataio==="sendCMD2")	{}
+				if(data.Arguments[i].dataio==="LEDOFF")	{setled=true;}				
 			}
 		}
 	}
@@ -140,10 +176,10 @@ var setstat=function(data){
 	if(setled)if(led===true)subClass(n,"inaktiv");else addClass(n,"inaktiv");
 }
 
-var dataio=function(){//lokal ESP_Node_Rolloswitch
+var dataio=function(){//lokal ESP_Node
 	var ESP8266URL="./action?dataio=";	
 	var ini=function(){
-		var i,z,b;
+		var i,z,b,t,p;
 		z=gE("actions");
 		if(z){
 			//b=cE(z,"span","stat_Rls","pout cRelay inaktiv");b.title="Send Command";
@@ -151,7 +187,14 @@ var dataio=function(){//lokal ESP_Node_Rolloswitch
 			b=cE(z,"br");
 			for(i=0;i<befehllist.length;i++){
 				b=befehllist[i];
-				cButt(z,b.n,"butt",b.b,buttclick);
+				if(b.g!=undefined){
+					p=cE(z,"p",undefined,"gruppe");
+					for(t=0;t<b.g.length;t++){
+						cButt(p,b.g[t].n,"butt",b.g[t].b,buttclick);
+					}
+					
+				}else
+					cButt(z,b.n,"butt",b.b,buttclick);
 			}
 		}
 	}
@@ -316,11 +359,22 @@ var timerliste=function(){
 		return input;
 	}
 	var addBefehle=function(node,dat){
-		var i,o;
+		var i,o,t,b;
 		for(i=0;i<befehllist.length;i++){
-			o=cE(node,"option");
-			o.value=befehllist[i].b;
-			o.innerHTML=befehllist[i].n;
+			b=befehllist[i];
+			if(b.g!=undefined){
+					//p=cE(z,"p",undefined,"gruppe");
+					for(t=0;t<b.g.length;t++){
+						o=cE(node,"option");
+						o.value=b.g[t].b;
+						o.innerHTML=b.g[t].n;
+					}
+			}
+			else{
+				o=cE(node,"option");
+				o.value=b.b;
+				o.innerHTML=b.n;
+			}
 		}
 	}
 	

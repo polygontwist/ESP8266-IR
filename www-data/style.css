@@ -22,6 +22,17 @@ div,form{
 	margin-bottom:10px;
 }
 
+p.gruppe{
+	margin: 0;
+}
+p.gruppe a{
+	min-width:75px;
+}
+p.gruppe a span{
+	font-size:8pt;
+}
+
+
 .butt {
 	min-width:55px;
 	color:#fff;
