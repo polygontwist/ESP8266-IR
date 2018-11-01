@@ -21,7 +21,7 @@ folgende Bibliothecken wurden verwendet:
 # Installation mit Arduino IDE 1.8.5
 * zuerst müssen die Zeilen #define WIFI_SSID und #define WIFI_PASSWORD aus kommentiert und befüllt werden
 * die Zeile #include "wifisetup.h" ist auszukommentieren (ich habe dort meine Wifi-Einstellungen abgelegt)
-* Einstellung: Generic ESP8266 Modul, 80 MHZ, 40MHz, DOUT, 115200, 1M (64k SPIFFS)
+* Einstellung: Generic ESP8266 Modul, 80 MHZ, 40MHz, DOUT, 115200, 4M (2M SPIFFS)
 * Um den ESP im Netzwerk zu finden, sollte ARDUINO_HOSTNAME definiert werden
 
 Bei upload auf den ESP muß der Flash-Button gedrück werden und dann Reset gedrückt werden - damit geht der ESP8266 in den Programiermodus.
